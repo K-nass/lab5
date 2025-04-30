@@ -155,7 +155,12 @@ function insertOption() {
 
 function handleDelete() {
     tableBody.removeChild(tableBody.children[rowId]);
-    rowId--;
+    if (rowId == -1) {
+        rowId = -1;
+    } else {
+        rowId--
+    }
+    console.log(rowId);
 }
 
 
@@ -175,7 +180,7 @@ function sortByName() {
         if (a.name > b.name) return 1;
         return 0
     })
-    console.log('sortBy name',tableData)
+    console.log('sortBy name', tableData)
     renderTable();
 }
 
@@ -186,7 +191,7 @@ function sortByGrade() {
         return 0;
     })
 
-    console.log('sort by grade',tableData);
+    console.log('sort by grade', tableData);
     renderTable();
 }
 
