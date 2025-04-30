@@ -95,12 +95,15 @@ function checkStGrade() {
 const radioInput = document.querySelectorAll("input[type = 'radio']");
 let selectedDept = null;
 function checkDepartment() {
+    const errorStDepartmentElement = document.querySelector(".stDepartmentError");
     for (let i = 0; i < radioInput.length; i++) {
         if (radioInput[i].checked) {
             selectedDept = radioInput[i].value;
+            errorStDepartmentElement.style.display = "none";
             return true;
         }
     }
+    errorStDepartmentElement.style.display = "block";
     return false;
 }
 
