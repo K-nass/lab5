@@ -13,7 +13,7 @@ nextBtn.onclick = function () {
         current = 0
     }
 
-    img.src = `../images/${images[current]}`;
+    img.src = `images/${images[current]}`;
 }
 
 prevBtn.onclick = function () {
@@ -22,7 +22,7 @@ prevBtn.onclick = function () {
     } else {
         current = images.length - 1;
     }
-    img.src = `../images/${images[current]}`;
+    img.src = `images/${images[current]}`;
 }
 
 let interval;
@@ -33,7 +33,7 @@ function intervalSlideShow() {
         } else {
             current = 0
         }
-        img.src = `../images/${images[current]}`;
+        img.src = `images/${images[current]}`;
     }, 1000)
 }
 
