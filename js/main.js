@@ -164,6 +164,8 @@ const sortSelect = document.getElementById("sortSelect");
 sortSelect.addEventListener("change", function () {
     if (this.value == 'name') {
         sortByName();
+    } else {
+        sortByGrade();
     }
 })
 
@@ -173,14 +175,24 @@ function sortByName() {
         if (a.name > b.name) return 1;
         return 0
     })
-    console.log(tableData)
-    renderTable()
+    console.log('sortBy name',tableData)
+    renderTable();
+}
+
+function sortByGrade() {
+    tableData.sort((a, b) => {
+        if (a.grade < b.grade) return -1;
+        if (a.grade > b.grade) return 1;
+        return 0;
+    })
+
+    console.log('sort by grade',tableData);
+    renderTable();
 }
 
 function renderTable() {
     tableBody.innerHTML = '';
     let htmlContent = '';
-
     tableData.forEach(student => {
         htmlContent += `
            <tr>
