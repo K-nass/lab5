@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div>
+        <button id="nextBtn">next</button>
+        <button id="prevBtn">prev</button>
+        <button id="slideShowBtn">slide show</button>
+        <button id="stopBtn">stop</button>
+        <div>
+            <img id="mainImg" src="images/img1.jpg" alt="">
+        </div>
+    </div>
+
+
+    <form id="form">
+        <span>department</span>
+        <input type="radio" id="deptSd" name="dept" value="SD">
+        <label for="deptSd">SD</label>
+        <input type="radio" id="deptOs" name="dept" value="OS">
+        <label for="deptOs">OS</label>
+        <input type="radio" id="deptEl" name="dept" value="EL">
+        <label for="deptEl">EL</label>
+        <br>
+        <label for="stName">student name</label>
+        <input type="text" id="stName">
+        <p class="error stNameError"> invalid studentName</p>
+        <br>
+        <label for="stGrade">student grade</label>
+        <input type="text" id="stGrade">
+        <p class="error stGradeError">invalid student grade must be between 0 to 100</p>
+        <br >
+        <button id="addBtn" type="submit">add</button>
+        <br >
+        <label for="sortSelect">sort</label>
+        <select name="sortSelectValue" id="sortSelect">
+            <option value="name">name</option>
+            <option value="grade">grade</option>
+        </select>
+        <br >
+        <label for="filterSelect">filter</label>
+        <select name="filterSelectValue" id="filterSelect">
+            <option value="name">all</option>
+            <option value="success">success students</option>
+            <option value="failed">failed students</option>
+        </select>
+    </form>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>grade</th>
+                <th>department</th>
+                <th>option</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
