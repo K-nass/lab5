@@ -198,11 +198,12 @@ function sortByGrade() {
     renderTable();
 }
 
-function renderTable() {
+function renderTable(newFilteredData = tableData) {
     tableBody.innerHTML = '';
     let htmlContent = '';
-    tableData.forEach(student => {
-        htmlContent += `
+    newFilteredData.length > 0 ?
+        newFilteredData.forEach(student => {
+            htmlContent += `
            <tr>
                <td>${student.name}</td>
                <td>${student.grade}</td>
@@ -212,9 +213,34 @@ function renderTable() {
                </td>
            </tr>
        `;
-    });
+        }) : null;
     tableBody.innerHTML = htmlContent;
     document.querySelectorAll('#deleteBtn').forEach(btn => {
         btn.addEventListener('click', handleDelete);
     });
 }
+
+
+const filterSelect = document.getElementById("filterSelect");
+filterSelect.addEventListener("change", function () {
+    if (this.value == 'success') {
+        filerBySuccess();
+    }
+    else if (this.value == 'failed') {
+        filerByFailed();
+    }
+    else if (this.value == 'all') {
+        renderTable(tableData);
+    }
+})
+
+function filerBySuccess() {
+    let newSuccessStudents = tableData.filter((student) => student.grade > 60);
+    renderTable(newSuccessStudents);
+}
+
+function filerByFailed() {
+    let newFailedStudents = tableData.filter((student) => student.grade < 60);
+    renderTable(newFailedStudents);
+}
+
